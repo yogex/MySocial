@@ -5,7 +5,7 @@ using System.Reactive.Linq;
 
 namespace MySocial.Extensions
 {
-    public static class ViewForMixins
+    public static class ViewExtensions
     {
         public static IDisposable WhenNavigatedTo<TView, TViewModel>(this TView This, TViewModel viewModel, Func<IDisposable> onNavigatedTo)
             where TView : IViewFor<TViewModel>
