@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MySocial.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FacebookAppKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">540740926047667</Value>
+    </Setting>
+    <Setting Name="FacebookAppSecret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">80508b188cfe0de0dfd51b1c9909ec0f</Value>
+    </Setting>
+    <Setting Name="FacebookUserId" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FacebookUserToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TwitterAppKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">lJbyz3I2dkEhBOsi2jqibg6Oh</Value>
+    </Setting>
+    <Setting Name="TwitterAppSecret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">LG453b9DaFReCbHa8t3ty5DPT4wLqBBeuxkqjQAJp1tTkFyGlz</Value>
+    </Setting>
+    <Setting Name="TwitterUserToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TwitterUserTokenSecret" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
