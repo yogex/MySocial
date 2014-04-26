@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MySocial.ViewModels;
+using ReactiveUI;
+using ReactiveUI.Xaml;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,19 @@ namespace MySocial
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindowViewModel ViewModel { get; protected set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            var viewHost = new RoutedViewHost();
+            this.Presenter.Content = viewHost;
+
+            var screen = RxApp.DependencyResolver.GetService<IScreen>();
+            viewHost.Router = screen.Router;
+
+            DataContext = RxApp.DependencyResolver.GetService<IMainWindowViewModel>();
         }
     }
 }
