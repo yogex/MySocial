@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MySocial.Services
 {
-    interface ITwitterService
+    public interface ITwitterService
     {
     }
 }

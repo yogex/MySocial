@@ -1,4 +1,5 @@
-﻿using MySocial.ViewModels;
+﻿using Facebook;
+using MySocial.ViewModels;
 using ReactiveUI;
 using ReactiveUI.Xaml;
 using System;
@@ -21,7 +22,7 @@ namespace MySocial
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IMainWindowView
     {
         public MainWindowViewModel ViewModel { get; protected set; }
 
@@ -36,6 +37,51 @@ namespace MySocial
             viewHost.Router = screen.Router;
 
             DataContext = RxApp.DependencyResolver.GetService<IMainWindowViewModel>();
+
+            Browser.Navigated += Browser_Navigated;
         }
+
+        void Browser_Navigated(object sender, NavigationEventArgs e)
+        {
+            var client = ViewModel.FacebookService.GetFacebookClient();
+            
+            FacebookOAuthResult oauthResult;
+            if (!client.TryParseOAuthCallbackUrl(e.Uri, out oauthResult))
+                return;
+            if (oauthResult.IsSuccess)
+                ViewModel.FacebookLoginSucceeded(oauthResult);
+            else
+                ViewModel.FacebookLoginFailed(oauthResult);
+        }
+
+        
+        IMainWindowViewModel IViewFor<IMainWindowViewModel>.ViewModel
+        {
+            get
+            {
+                return (IMainWindowViewModel) DataContext;
+            }
+            set
+            {
+                DataContext = value;
+            }
+        }
+
+        object IViewFor.ViewModel
+        {
+            get
+            {
+                return ViewModel;
+            }
+            set
+            {
+                this.ViewModel = (IMainWindowViewModel) value;
+            }
+        }
+    }
+
+    public interface IMainWindowView : IViewFor<IMainWindowViewModel>
+    {
+
     }
 }

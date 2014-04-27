@@ -2,7 +2,7 @@
 
 namespace MySocial.ViewModels
 {
-    public class NotificationViewModel : ViewModelBase, INotificationViewModel
+    public class NotificationViewModel : BaseViewModel, INotificationViewModel
     {
         private string _message;
 

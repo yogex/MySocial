@@ -160,14 +160,16 @@
     <Compile Include="Services\TwitterService.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Utilities\NotificationType.cs" />
+    <Compile Include="ViewModels\IFacebookUserViewModel.cs" />
     <Compile Include="ViewModels\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\INotificationViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NotificationViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Views\FacebookUserView.xaml.cs">
       <DependentUpon>FacebookUserView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\IFacebookUserView.cs" />
     <Compile Include="Views\INotificationView.cs" />
     <Compile Include="Views\NotificationView.xaml.cs">
       <DependentUpon>NotificationView.xaml</DependentUpon>

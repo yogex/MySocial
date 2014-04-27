@@ -36,7 +36,7 @@ namespace MySocial.Views
             });
         }
 
-        public INotificationViewModel ViewModel
+         INotificationViewModel ViewModel
         {
             get { return (INotificationViewModel)DataContext; }
             set { DataContext = value; }

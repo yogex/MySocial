@@ -1,4 +1,5 @@
 ﻿using Facebook;
+using MySocial.Models;
 
 namespace MySocial.Services
 {
@@ -6,5 +7,7 @@ namespace MySocial.Services
     {
         string GetLoginUrl();
         FacebookClient GetFacebookClient();
+        string GetAccessToken(FacebookOAuthResult oauthResult);
+        FacebookUser GetUser(string token);
     }
 }
