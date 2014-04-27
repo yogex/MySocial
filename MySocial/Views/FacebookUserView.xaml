@@ -10,11 +10,17 @@
         <converters:VisibilityConverter x:Key="VisibilityConverter" />
     </UserControl.Resources>
     <Grid>
-        <Grid x:Name="LoginView">
+        <Grid x:Name="LoginView" Visibility="Collapsed">
             <Button Command="{Binding Login}" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5">Log on using your Facebook account</Button>
         </Grid>
         <Grid x:Name="UserView" Visibility="{Binding IsLoggedIn, Converter={StaticResource VisibilityConverter}}" >
+            <TextBlock HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" FontSize="18">Facebook</TextBlock>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Text="{Binding User.Name}">My Name</TextBlock>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Text="{Binding User.Email}">My Email</TextBlock>
+            </StackPanel>
             
+        <Button Command="{Binding Login}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="5" Margin="10">Logout</Button>
         </Grid>
     </Grid>
 </UserControl>
