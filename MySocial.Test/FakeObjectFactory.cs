@@ -13,7 +13,7 @@ namespace MySocial.Test
 
         static FakeObjectFactory()
         {
-            Container.Add(typeof(IApplicationSettings), FakeSettings.GetFake());
+            Container.Add(typeof(ISettings), FakeSettings.GetFake());
         }
 
         internal static T Get<T>()

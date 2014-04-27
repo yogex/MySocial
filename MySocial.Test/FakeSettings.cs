@@ -9,9 +9,9 @@ namespace MySocial.Test
 {
     internal class FakeSettings
     {
-        internal static IApplicationSettings GetFake()
+        internal static ISettings GetFake()
         {
-            var appSettings = A.Fake<IApplicationSettings>();
+            var appSettings = A.Fake<ISettings>();
 
             A.CallTo(() => appSettings.FacebookAppKey).Returns("540740926047667");
             A.CallTo(() => appSettings.FacebookAppSecret).Returns("80508b188cfe0de0dfd51b1c9909ec0f");

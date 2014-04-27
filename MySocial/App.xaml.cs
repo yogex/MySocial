@@ -1,13 +1,15 @@
-﻿using System;
+﻿using MySocial.Properties;
+using MySocial.Services;
+using MySocial.ViewModels;
+using MySocial.Views;
+using ReactiveUI;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using MySocial.ViewModels;
-using MySocial.Views;
-using ReactiveUI;
 
 namespace MySocial
 {
@@ -27,15 +29,8 @@ namespace MySocial
 
             LogHost.Default.Level = LogLevel.Debug;
 
-            //var service = RxApp.DependencyResolver.GetService<IService>();
-            //if (!service.IsActive)
-            //{
-            //    service.Start();
-            //}
-
             var message = RxApp.DependencyResolver.GetService<INotificationViewModel>();
             this.Router.Navigate.Execute(message);
-
         }
 
         private void RegisterParts(IMutableDependencyResolver resolver)
@@ -43,6 +38,8 @@ namespace MySocial
             resolver.RegisterConstant(this, typeof(IScreen));
             resolver.RegisterConstant(this.Router, typeof(IRoutingState));
 
+            resolver.RegisterLazySingleton(() => new Settings(), typeof(ISettings));
+            resolver.RegisterLazySingleton(() => new FacebookService(resolver.GetService<ISettings>()), typeof(IFacebookService));
             resolver.RegisterLazySingleton(() => new MainWindowViewModel(this), typeof(IMainWindowViewModel));
             resolver.RegisterLazySingleton(() => new NotificationView(), typeof(INotificationView));
 

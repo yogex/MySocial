@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace MySocial.Services
 {
-    public class TwitterService
+    public class TwitterService : BaseService, ITwitterService
     {
+        public TwitterService(ISettings settings): base(settings)
+        {
+            
+        }
     }
 }
