@@ -1,4 +1,5 @@
 ﻿using Facebook;
+using MySocial.Models;
 using MySocial.Properties;
 
 namespace MySocial.Services
@@ -48,11 +49,21 @@ namespace MySocial.Services
             return result.access_token;
         }
 
-        public dynamic GetUser(string token)
+        public FacebookUser GetUser(string token)
         {
             var client = GetFacebookClient();
-            dynamic user = client.Get("/me", new { fields = "first_name,last_name,email,picture,gender", access_token = token });
-            return user;
+
+            dynamic fbObject = client.Get("/me", new { fields = "first_name,last_name,email,picture,gender", access_token = token });
+            
+            var fbUser = new FacebookUser
+            {
+                Name = fbObject.first_name + " " + fbObject.last_name,
+                FacebookUserId = fbObject.id,
+                FacebookUsername = fbObject.username,
+                Email = fbObject.email
+            };
+
+            return fbUser;
         }
     }
 }
