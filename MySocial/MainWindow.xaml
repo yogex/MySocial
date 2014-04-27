@@ -1,7 +1,8 @@
 ﻿<Window x:Class="MySocial.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:my="clr-namespace:MySocial.Views"
+        Title="MySocial" Height="480" Width="640">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
@@ -9,7 +10,16 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid Margin="8" Grid.Row="0">
-            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <my:FacebookUserView Grid.Column="0" x:Name="FacebookViewer" ></my:FacebookUserView>
+            <my:TwitterUserView Grid.Column="1" x:Name="TwitterViewer" ></my:TwitterUserView>
+        </Grid>
+        <Grid Margin="8" Grid.Row="1">
+            <WebBrowser x:Name="Browser"></WebBrowser>
+            <my:StreamView x:Name="Streamer"></my:StreamView>
         </Grid>
         <ContentPresenter Grid.Row="2" x:Name="Presenter" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
     </Grid>
